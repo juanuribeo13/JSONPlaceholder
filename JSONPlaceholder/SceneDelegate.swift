@@ -19,8 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
+        configureAppearance()
+        
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = PostsView()
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
@@ -59,6 +61,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    // MARK: - Private Functions
+    
+    private func configureAppearance() {
+        
+        let navigationAppearance = UINavigationBarAppearance()
+        navigationAppearance.backgroundColor = .systemGreen
+        
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationAppearance
+        UINavigationBar.appearance().standardAppearance = navigationAppearance
+        UINavigationBar.appearance().tintColor = UIColor(named: "navigationTintColor")
+    }
 }
 
